@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: malthumkargameoflife 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: malthumkargameoflife 
+    spec:
+      containers:
+        - name: malthumkargameoflife 
+          image: inspired.azurecr.io/malthumkargameoflife
+          ports:
+          - containerPort: 80
