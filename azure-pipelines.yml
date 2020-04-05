@@ -17,9 +17,13 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'inspiredd279-auth'
-- task: DotNetCoreCLI@2
+- task: Ant@1
   inputs:
-    command: 'build'
+    buildFile: 'build.xml'
+    options: 
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
