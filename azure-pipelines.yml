@@ -17,11 +17,9 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'inspiredd279-auth'
-- task: AzureCLI@2
+- task: DotNetCoreCLI@2
   inputs:
-    scriptType: 'batch'
-    scriptLocation: 'scriptPath'
-    scriptPath: 'https://github.com/malthumkAR/game-of-life.git'
+    command: 'build'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
