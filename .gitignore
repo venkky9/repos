@@ -1,3 +1,23 @@
+<<<<<<< HEAD
 .DS_Store
 .vagrant/
 *.retry
+=======
+.DS_Store 
+.project
+.settings
+target
+.idea
+.classpath
+.checkstyle
+.pmd
+*.log
+*.log.*
+*.iml  
+*.ipr
+*.iws
+*.versionsBackup
+
+*.iml
+.DS_Store
+>>>>>>> 9306cea14baac0cc4f0c5ab5c4fcd2673b6ce051
