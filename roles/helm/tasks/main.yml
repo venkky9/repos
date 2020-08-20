@@ -1,0 +1,31 @@
+---
+- name: "Create tmp directory"
+  file:
+    path: "{{ tmp_dir }}"
+    state: directory
+    mode: 0755
+  tags: helm
+
+- name: "Download Helm"
+  get_url:
+    url: "https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz"
+    dest: /root
+  tags: download
+
+- name: "Unarchive the package"
+  unarchive:
+    src: /root/helm-v3.2.1-linux-amd64.tar.gz
+    dest: /root
+
+- name: copy helm binary
+  copy:
+    src: /root/linux-amd64/helm
+    dest: /usr/local/sbin
+    mode: 0755
+
+- name: "Clean-up"
+  file:
+    path: "{{ tmp_dir }}"
+    state: absent
+  ignore_errors: yes
+  tags: helm
